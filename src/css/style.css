@@ -289,6 +289,9 @@
   .h-\[520px\] {
     height: 520px;
   }
+  .min-h-screen {
+    min-height: 100vh;
+  }
   .w-2\.5 {
     width: calc(var(--spacing) * 2.5);
   }
@@ -312,6 +315,9 @@
   }
   .min-w-0 {
     min-width: calc(var(--spacing) * 0);
+  }
+  .flex-1 {
+    flex: 1;
   }
   .shrink-0 {
     flex-shrink: 0;

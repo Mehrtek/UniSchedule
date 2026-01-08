@@ -224,12 +224,20 @@ export function seedSample() {
     }
 
     const [i1, i2, i3] = sample.instructors;
+    // New instructor
+    sample.instructors.push({ id: uid(), name: "Dr. Sarah Chen" });
+    sample.instructors[3].availability = makeDefaultAvailability();
+    const i4 = sample.instructors[3];
 
     sample.courses = [
         { id: uid(), code: "CSC201", title: "Data Structures", instructorId: i2.id, sessionsPerWeek: 3, duration: 1, preferredDays: ["Mon", "Wed", "Fri"], earliestHour: 9, latestHour: 16, notes: "Prefer mid-morning slots." },
         { id: uid(), code: "CSC241", title: "Operating Systems", instructorId: i1.id, sessionsPerWeek: 2, duration: 2, preferredDays: ["Tue", "Thu"], earliestHour: 10, latestHour: 18, notes: "2-hour blocks; avoid early mornings." },
         { id: uid(), code: "MTH110", title: "Discrete Mathematics", instructorId: i3.id, sessionsPerWeek: 2, duration: 1, preferredDays: ["Mon", "Thu"], earliestHour: 8, latestHour: 14, notes: "Keep before afternoon." },
-        { id: uid(), code: "ENG101", title: "Technical Writing", instructorId: "", sessionsPerWeek: 1, duration: 2, preferredDays: ["Wed"], earliestHour: 9, latestHour: 17, notes: "Instructor TBD (availability ignored until assigned)." }
+        { id: uid(), code: "ENG101", title: "Technical Writing", instructorId: "", sessionsPerWeek: 1, duration: 2, preferredDays: ["Wed"], earliestHour: 9, latestHour: 17, notes: "Instructor TBD (availability ignored until assigned)." },
+        { id: uid(), code: "PHY101", title: "Physics I", instructorId: i4.id, sessionsPerWeek: 3, duration: 1, preferredDays: ["Mon", "Wed", "Fri"], earliestHour: 8, latestHour: 12, notes: "Lab equipment needed." },
+        { id: uid(), code: "CSC301", title: "Algorithms", instructorId: i1.id, sessionsPerWeek: 2, duration: 1.5, preferredDays: ["Tue", "Thu"], earliestHour: 13, latestHour: 17, notes: "Advanced topics." },
+        { id: uid(), code: "ART105", title: "Design Studio", instructorId: i3.id, sessionsPerWeek: 1, duration: 3, preferredDays: ["Fri"], earliestHour: 13, latestHour: 17, notes: "Long studio session." },
+        { id: uid(), code: "HIS101", title: "World History", instructorId: i2.id, sessionsPerWeek: 2, duration: 1.5, preferredDays: ["Mon", "Wed"], earliestHour: 14, latestHour: 18, notes: "Afternoon lectures." }
     ];
 
     state.instructors = sample.instructors;

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UniSchedule</title>
+
+
+  <script src="src/js/docx.js"></script>
+  <link rel="stylesheet" href="src/css/style.css">
+</head>
+
+<body>
+  <div class="fixed inset-0 pointer-events-none opacity-[0.35]" aria-hidden="true">
+    <div class="absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full blur-3xl glow-blob-1"></div>
+    <div class="absolute top-16 -right-28 w-[520px] h-[520px] rounded-full blur-3xl glow-blob-2"></div>
+  </div>
+
+  <header class="sticky top-0 z-50">
+    <div class="glass border-b border-white/10">
+      <div class="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="h-16 flex items-center justify-between gap-4">
+          <a href="#top" class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl grid place-items-center border border-white/15 logo-box">
+              <span class="font-black tracking-tight">US</span>
+            </div>
+            <div class="leading-tight">
+              <div class="font-bold tracking-tight">UniSchedule</div>
+              <div class="text-xs text-white/60 -mt-0.5">
+              </div>
+            </div>
+          </a>
+
+
+
+          <div class="flex items-center gap-2">
+            <button id="btnSeed" class="btn px-3 py-2 rounded-xl text-sm hidden sm:inline-flex">Load sample</button>
+            <button id="btnSave" class="btn px-3 py-2 rounded-xl text-sm hidden sm:inline-flex"
+              title="Save to browser storage">Save</button>
+            <button id="btnExportDocx" class="btn px-3 py-2 rounded-xl text-sm hidden sm:inline-flex">Export DOCX</button>
+            <button id="btnGenerate"
+              class="btn btn-primary px-3 py-2 rounded-xl text-sm inline-flex items-center gap-2">
+              <span>Generate</span>
+              <span class="kbd hidden lg:inline">G</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="relative">
+
+
+    <section id="generator" class="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16">
+      <div class="grid xl:grid-cols-12 gap-6">
+        <div class="xl:col-span-3 lg:col-span-4 space-y-6">
+          <div class="glass rounded-3xl p-6 shadow-soft">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+
+                <div class="mt-1 text-xl font-black tracking-tight">Courses</div>
+                <div class="mt-1 text-sm text-white/65"> </div>
+              </div>
+              <div class="flex gap-2">
+                <button id="btnAddCourse" class="btn btn-primary px-3 py-2 rounded-xl text-sm">Add</button>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <div class="flex gap-2">
+                <input id="courseSearch" class="input" placeholder="Search courses (press /)" />
+              </div>
+            </div>
+
+            <div class="mt-4 space-y-2" id="courseList" aria-live="polite"></div>
+
+            <div class="mt-4 subtle-divider"></div>
+
+            <div class="mt-4 flex flex-wrap gap-2">
+              <button id="btnSortCourses" class="btn px-3 py-2 rounded-xl text-sm">Smart sort</button>
+              <button id="btnClearSchedule" class="btn px-3 py-2 rounded-xl text-sm">Clear timetable</button>
+            </div>
+          </div>
+
+
+
+          <div class="glass rounded-3xl p-6 shadow-soft">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="text-xs uppercase tracking-widest text-white/60">Settings</div>
+                <div class="mt-1 text-xl font-black tracking-tight">Week & hours</div>
+                <div class="mt-1 text-sm text-white/65">Tune the working day and the schedule horizon.</div>
+              </div>
+            </div>
+
+            <div class="mt-4 grid grid-cols-2 gap-3">
+              <div>
+                <label class="label" for="startHour">Start hour</label>
+                <input id="startHour" type="number" min="6" max="12" step="1" class="input mt-1" />
+              </div>
+              <div>
+                <label class="label" for="endHour">End hour</label>
+                <input id="endHour" type="number" min="13" max="22" step="1" class="input mt-1" />
+              </div>
+              <div class="col-span-2">
+                <label class="label">Weekdays</label>
+                <div class="mt-2 flex flex-wrap gap-2" id="dayChips"></div>
+
+              </div>
+            </div>
+
+            <div class="mt-4 flex flex-wrap gap-2">
+              <button id="btnApplySettings" class="btn btn-primary px-3 py-2 rounded-xl text-sm">Apply</button>
+              <button id="btnAutoFix" class="btn px-3 py-2 rounded-xl text-sm">Auto-fix common issues</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="xl:col-span-6 lg:col-span-8 space-y-6">
+          <div class="glass rounded-3xl p-6 shadow-soft">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+              <div>
+
+                <div class="mt-1 text-xl font-black tracking-tight">Generated timetable</div>
+                <div class="mt-1 text-sm text-white/65" id="ttSummary">Generate to see results. Conflicts are avoided;
+                  unplaceable sessions are listed.</div>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <button id="btnGenerate2" class="btn btn-primary px-3 py-2 rounded-xl text-sm">Generate</button>
+                <button id="btnSave2" class="btn px-3 py-2 rounded-xl text-sm">Save</button>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <div class="tt-wrap">
+                <div class="tt-head tt-grid" id="ttHead"></div>
+                <div class="tt-grid" id="ttBody"></div>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+
+        <div class="xl:col-span-3 lg:col-span-12 space-y-6">
+          <div class="glass rounded-3xl p-6 shadow-soft">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+
+                <div class="mt-1 text-xl font-black tracking-tight">Instructors</div>
+                <div class="mt-1 text-sm text-white/65">Add instructors and mark unavailable hours.</div>
+              </div>
+              <div class="flex gap-2">
+                <button id="btnAddInstructor" class="btn btn-primary px-3 py-2 rounded-xl text-sm">Add</button>
+              </div>
+            </div>
+
+            <div class="mt-4 grid gap-3 sm:grid-cols-2">
+              <div class="sm:col-span-2">
+                <label class="label" for="instructorSelect">Edit availability</label>
+                <select id="instructorSelect" class="input mt-1"></select>
+              </div>
+              <div>
+                <button id="btnWorkingHours" class="btn w-full px-3 py-2 rounded-xl text-sm">Set working hours</button>
+              </div>
+              <div>
+                <button id="btnMakeAllAvailable" class="btn w-full px-3 py-2 rounded-xl text-sm">Make all
+                  available</button>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <div id="availabilityGrid" class="availability"></div>
+            </div>
+
+            <div class="mt-4 subtle-divider"></div>
+
+            <div class="mt-4 space-y-2" id="instructorList" aria-live="polite"></div>
+          </div>
+        </div>
+
+
+
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-center gap-2">
+        <div class="dev-label">
+          Designed & Developed by
+        </div>
+        <div class="flex items-center justify-center gap-6">
+          <a href="https://www.instagram.com/nohanbaloch_7/" class="footer-link text-base">Nohan Baloch</a>
+          <span class="text-white/20">&bull;</span>
+          <a href="https://www.instagram.com/memonrafay9/" class="footer-link text-base">Rafay Ahmed Memon</a>
+        </div>
+        <div class="mt-8 text-xs text-white/30">
+          &copy; 2026 UniSchedule. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modals -->
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <div class="px-5 sm:px-6 py-4 border-b border-white/10 flex items-start justify-between gap-3">
+        <div>
+          <div class="text-xs uppercase tracking-widest text-white/60" id="modalKicker">Editor</div>
+          <div class="mt-1 text-lg font-black tracking-tight" id="modalTitle">Modal</div>
+        </div>
+        <button id="btnCloseModal" class="btn px-3 py-2 rounded-xl text-sm">Close <span
+            class="kbd ml-1">Esc</span></button>
+      </div>
+
+      <div class="p-5 sm:p-6" id="modalBody"></div>
+
+      <div
+        class="px-5 sm:px-6 py-4 border-t border-white/10 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+        <div class="text-xs text-white/55" id="modalHint"></div>
+        <div class="flex gap-2 justify-end">
+          <button id="btnModalSecondary" class="btn px-3 py-2 rounded-xl text-sm">Cancel</button>
+          <button id="btnModalPrimary" class="btn btn-primary px-3 py-2 rounded-xl text-sm">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toasts -->
+  <div class="toast-wrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
+
+  <script type="module" src="src/js/main.js"></script>
+</body>
+
+</html>

@@ -156,7 +156,7 @@ export function renderAvailability() {
             c.setAttribute("role", "button");
             c.setAttribute("tabindex", "0");
             c.title = isOn ? "Available (click to mark unavailable)" : "Unavailable (click to mark available)";
-            c.textContent = isOn ? "Available" : "Off";
+            c.textContent = isOn ? "Free" : "Off";
             c.addEventListener("click", () => {
                 inst.availability[di][hi] = !isOn;
                 renderAvailability();

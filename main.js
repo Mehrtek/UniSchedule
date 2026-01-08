@@ -14,7 +14,8 @@ function createWindow() {
       // enableRemoteModule: false, // default is false
     },
     autoHideMenuBar: true, // cleaner look
-    title: "PersonaTable",
+    title: "UniSchedule",
+    icon: path.join(__dirname, "icon.png"),
   });
 
   win.loadFile("index.html");

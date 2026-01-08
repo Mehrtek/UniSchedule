@@ -2,6 +2,7 @@
   "name": "unischedule",
   "version": "1.0.0",
   "license": "MIT",
+  "author": "Mehrtek",
   "main": "main.js",
   "scripts": {
     "build:css": "tailwindcss -i src/css/input.css -o src/css/style.css",

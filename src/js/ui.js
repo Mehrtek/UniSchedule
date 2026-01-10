@@ -34,7 +34,7 @@ export function renderCourses() {
 
     list.innerHTML = "";
     if (courses.length === 0) {
-        list.innerHTML = `<div class="text-sm text-white/60">No courses yet. Add one to start.</div>`;
+        list.innerHTML = `<div class="text-sm text-muted">No courses yet. Add one to start.</div>`;
         return;
     }
 
@@ -44,22 +44,22 @@ export function renderCourses() {
         const pref = (c.preferredDays && c.preferredDays.length) ? c.preferredDays.join(", ") : "Any day";
         const window = `${pad2(c.earliestHour)}:00–${pad2(c.latestHour)}:00`;
         const el = document.createElement("div");
-        el.className = "glass2 rounded-2xl p-4 border border-white/10";
+        el.className = "glass2 rounded-2xl p-4 border border-main";
         el.innerHTML = `
       <div class="flex items-start justify-between gap-3">
         <div class="min-w-0">
           <div class="flex items-center gap-2 min-w-0">
             <div class="w-2.5 h-2.5 rounded-full" style="background: hsl(${hue} 85% 62%); box-shadow: 0 0 0 4px hsla(${hue} 85% 62% / 0.14);"></div>
-            <div class="font-bold truncate">${escapeHtml(c.code)} <span class="text-white/70 font-medium">— ${escapeHtml(c.title)}</span></div>
+            <div class="font-bold truncate">${escapeHtml(c.code)} <span class="text-muted font-medium">— ${escapeHtml(c.title)}</span></div>
           </div>
-          <div class="mt-2 flex flex-wrap gap-2 text-xs text-white/70">
+          <div class="mt-2 flex flex-wrap gap-2 text-xs text-muted">
             <span class="pill">${escapeHtml(inst?.name || "No instructor")}</span>
             <span class="pill">${escapeHtml(String(c.sessionsPerWeek))}×/week</span>
             <span class="pill">${escapeHtml(String(c.duration))}h</span>
             <span class="pill">${escapeHtml(window)}</span>
             <span class="pill">${escapeHtml(pref)}</span>
           </div>
-          ${c.notes ? `<div class="mt-2 text-xs text-white/55">Notes: ${escapeHtml(c.notes)}</div>` : ``}
+          ${c.notes ? `<div class="mt-2 text-xs text-muted2">Notes: ${escapeHtml(c.notes)}</div>` : ``}
         </div>
         <div class="flex flex-col gap-2 shrink-0">
           <button class="btn px-3 py-2 rounded-xl text-xs" data-act="edit-course" data-id="${c.id}">Edit</button>
@@ -75,7 +75,7 @@ export function renderInstructors() {
     const list = $("#instructorList");
     list.innerHTML = "";
     if (state.instructors.length === 0) {
-        list.innerHTML = `<div class="text-sm text-white/60">No instructors yet. Add at least one for availability constraints.</div>`;
+        list.innerHTML = `<div class="text-sm text-muted">No instructors yet. Add at least one for availability constraints.</div>`;
         $("#instructorSelect").innerHTML = `<option value="">(No instructors)</option>`;
         renderAvailability();
         return;
@@ -90,15 +90,15 @@ export function renderInstructors() {
     for (const i of state.instructors) {
         const unavailable = countUnavailable(i);
         const el = document.createElement("div");
-        el.className = "glass2 rounded-2xl p-4 border border-white/10";
+        el.className = "glass2 rounded-2xl p-4 border border-main";
         el.innerHTML = `
       <div class="flex items-start justify-between gap-3">
         <div class="min-w-0">
           <div class="font-bold truncate">${escapeHtml(i.name)}</div>
-          <div class="mt-1 text-xs text-white/60">
-            Unavailable slots: <span class="text-white/80 font-semibold">${unavailable}</span>
-            <span class="text-white/45">•</span>
-            Assigned courses: <span class="text-white/80 font-semibold">${state.courses.filter(c => c.instructorId === i.id).length}</span>
+          <div class="mt-1 text-xs text-muted">
+            Unavailable slots: <span class="text-main font-semibold">${unavailable}</span>
+            <span class="text-muted2">•</span>
+            Assigned courses: <span class="text-main font-semibold">${state.courses.filter(c => c.instructorId === i.id).length}</span>
           </div>
         </div>
         <div class="flex flex-col gap-2 shrink-0">
@@ -129,13 +129,13 @@ export function renderAvailability() {
 
     grid.innerHTML = "";
     if (!instId) {
-        grid.innerHTML = `<div class="text-sm text-white/60">Add an instructor to edit availability.</div>`;
+        grid.innerHTML = `<div class="text-sm text-muted">Add an instructor to edit availability.</div>`;
         return;
     }
 
     const inst = getInstructor(instId);
     if (!inst) {
-        grid.innerHTML = `<div class="text-sm text-white/60">Select a valid instructor.</div>`;
+        grid.innerHTML = `<div class="text-sm text-muted">Select a valid instructor.</div>`;
         return;
     }
     normalizeAvailabilityForSettings(inst);
@@ -346,7 +346,7 @@ export function openCourseEditor(courseId) {
     const dayButtons = days.map(d => {
         const on = course.preferredDays.includes(d);
         return `
-      <button type="button" class="btn px-3 py-2 rounded-xl text-sm ${on ? "border-white/35" : ""}" data-day="${d}">
+      <button type="button" class="btn chip px-3 py-2 rounded-xl text-sm ${on ? "active" : ""}" data-day="${d}" data-on="${on ? "1" : "0"}">
         ${escapeHtml(d)}
       </button>
     `;
@@ -449,13 +449,11 @@ export function openCourseEditor(courseId) {
 
     $("#cInstructor").value = course.instructorId || "";
     $$("#cPreferredDays button").forEach(btn => {
-        const on = course.preferredDays.includes(btn.dataset.day);
-        btn.dataset.on = on ? "1" : "0";
-        if (on) btn.style.borderColor = "rgba(255,255,255,0.38)";
         btn.addEventListener("click", () => {
             const isOn = btn.dataset.on === "1";
-            btn.dataset.on = isOn ? "0" : "1";
-            btn.style.borderColor = isOn ? "rgba(255,255,255,0.16)" : "rgba(255,255,255,0.38)";
+            const newVal = isOn ? "0" : "1";
+            btn.dataset.on = newVal;
+            btn.classList.toggle("active", newVal === "1");
         });
     });
 }

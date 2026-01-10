@@ -82,10 +82,19 @@ function setTheme(theme) {
 }
 
 function bindEvents() {
-    $("#btnThemeToggle").addEventListener("click", (e) => {
+    $("#btnThemeToggle").onclick = (e) => {
         e.stopPropagation();
         $("#themeDropdown").classList.toggle("hidden");
-    });
+    };
+
+    // Instructor Custom Select
+    $("#instructorSelectBtn").onclick = (e) => {
+        e.stopPropagation();
+        const menu = $("#instructorSelectMenu");
+        const wrap = $("#instructorSelectWrap");
+        const isHidden = menu.classList.toggle("hidden");
+        wrap.classList.toggle("open", !isHidden);
+    };
 
     document.querySelectorAll(".theme-opt").forEach(opt => {
         opt.addEventListener("click", (e) => {
@@ -94,9 +103,10 @@ function bindEvents() {
         });
     });
 
-    document.addEventListener("click", () => {
-        const dropdown = $("#themeDropdown");
-        if (dropdown) dropdown.classList.add("hidden");
+    window.addEventListener("click", () => {
+        $("#themeDropdown")?.classList.add("hidden");
+        $("#instructorSelectMenu")?.classList.add("hidden");
+        $("#instructorSelectWrap")?.classList.remove("open");
     });
 
     $("#btnAddCourse").addEventListener("click", () => openCourseEditor(null));

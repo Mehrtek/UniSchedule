@@ -19,31 +19,31 @@
   </div>
 
   <header class="sticky top-0 z-50">
-    <div class="glass border-b border-white/10">
-      <div class="max-w-[95%] mx-auto px-2 sm:px-6 lg:px-8">
-        <div class="h-16 flex items-center justify-between gap-2 sm:gap-4">
-          <a href="#top" class="flex items-center gap-2 sm:gap-3">
-            <img src="icon.png" alt="UniSchedule Logo" class="logo-img w-9 h-9 rounded-xl object-contain border border-white/15">
-            <div class="leading-tight hidden sm:block">
+    <div class="glass border-b border-main">
+      <div class="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="h-16 flex items-center justify-between gap-4">
+          <a href="#top" class="flex items-center gap-3">
+            <img src="icon.png" alt="UniSchedule Logo" class="logo-img w-9 h-9 rounded-xl object-contain border border-sub">
+            <div class="leading-tight">
               <div class="font-bold tracking-tight">UniSchedule</div>
-              <div class="text-xs text-white/60 -mt-0.5">
+              <div class="text-xs text-muted -mt-0.5">
               </div>
             </div>
           </a>
 
 
 
-          <div class="flex items-center gap-1.5 sm:gap-3">
-            <!-- Theme Container -->
-            <div class="flex items-center gap-1 sm:gap-2">
-              <span class="header-label text-[10px] sm:text-xs font-bold uppercase tracking-widest text-white/40 mb-[-1px] hidden md:inline">Themes</span>
+          <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2">
+              <span class="header-label text-xs font-bold uppercase tracking-widest text-muted2 mb-[-1px]">Themes</span>
               <div class="relative">
-                <button id="btnThemeToggle" class="btn w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full p-0 relative" title="Switch theme">
-                  <svg class="w-4 h-4 sm:w-5 sm:h-5 theme-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button id="btnThemeToggle" class="btn w-9 h-9 flex items-center justify-center rounded-full p-0 relative" title="Switch theme">
+                  <svg class="w-5 h-5 theme-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                   </svg>
                 </button>
                 
+                <!-- Custom Vertical Dropdown (Android Volume Style) -->
                 <div id="themeDropdown" class="theme-dropdown-menu hidden">
                   <div class="theme-dropdown-inner">
                     <button class="theme-opt" data-theme="onyx" title="Onyx (Dark)">
@@ -58,32 +58,22 @@
                     </button>
                     <button class="theme-opt" data-theme="spectrum" title="Spectrum (Vibrant)">
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.828 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                       </svg>
                     </button>
                   </div>
                 </div>
               </div>
             </div>
-
-            <button id="btnSeed" class="btn w-8 h-8 sm:w-auto sm:px-3 sm:py-2 rounded-xl text-sm flex items-center justify-center sm:inline-flex" title="Load sample">
-              <span class="hidden sm:inline">Load sample</span>
-              <svg class="w-4 h-4 sm:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-            </button>
-            <button id="btnSave" class="btn w-8 h-8 sm:w-auto sm:px-3 sm:py-2 rounded-xl text-sm flex items-center justify-center sm:inline-flex" title="Save to browser storage">
-              <span class="hidden sm:inline">Save</span>
-              <svg class="w-4 h-4 sm:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/></svg>
-            </button>
-            <button id="btnExportDocx" class="btn w-8 h-8 sm:w-auto sm:px-3 sm:py-2 rounded-xl text-sm flex items-center justify-center sm:inline-flex" title="Export DOCX">
-              <span class="hidden sm:inline">Export DOCX</span>
-              <svg class="w-4 h-4 sm:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/></svg>
-            </button>
-            <button id="btnGenerate" class="btn btn-primary w-8 h-8 sm:w-auto sm:px-3 sm:py-2 rounded-xl text-sm flex items-center justify-center sm:inline-flex items-center gap-2">
-              <span class="hidden sm:inline">Generate</span>
-              <svg class="w-4 h-4 sm:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            <button id="btnSeed" class="btn px-3 py-2 rounded-xl text-sm hidden sm:inline-flex">Load sample</button>
+            <button id="btnSave" class="btn px-3 py-2 rounded-xl text-sm hidden sm:inline-flex"
+              title="Save to browser storage">Save</button>
+            <button id="btnExportDocx" class="btn px-3 py-2 rounded-xl text-sm hidden sm:inline-flex">Export DOCX</button>
+            <button id="btnGenerate"
+              class="btn btn-primary px-3 py-2 rounded-xl text-sm inline-flex items-center gap-2">
+              <span>Generate</span>
               <span class="kbd hidden lg:inline">G</span>
             </button>
-          </div>
           </div>
         </div>
       </div>
@@ -99,9 +89,8 @@
           <div class="glass rounded-3xl p-6 shadow-soft">
             <div class="flex items-start justify-between gap-3">
               <div>
-
                 <div class="mt-1 text-xl font-black tracking-tight">Courses</div>
-                <div class="mt-1 text-sm text-white/65"> </div>
+                <div class="mt-1 text-sm text-muted"> </div>
               </div>
               <div class="flex gap-2">
                 <button id="btnAddCourse" class="btn btn-primary px-3 py-2 rounded-xl text-sm">Add</button>
@@ -130,9 +119,9 @@
           <div class="glass rounded-3xl p-6 shadow-soft">
             <div class="flex items-start justify-between gap-3">
               <div>
-                <div class="text-xs uppercase tracking-widest text-white/60">Settings</div>
+                <div class="text-xs uppercase tracking-widest text-muted">Settings</div>
                 <div class="mt-1 text-xl font-black tracking-tight">Week & hours</div>
-                <div class="mt-1 text-sm text-white/65">Tune the working day and the schedule horizon.</div>
+                <div class="mt-1 text-sm text-muted">Tune the working day and the schedule horizon.</div>
               </div>
             </div>
 
@@ -165,7 +154,7 @@
               <div>
 
                 <div class="mt-1 text-xl font-black tracking-tight">Generated timetable</div>
-                <div class="mt-1 text-sm text-white/65" id="ttSummary">Generate to see results. Conflicts are avoided;
+                <div class="mt-1 text-sm text-muted" id="ttSummary">Generate to see results. Conflicts are avoided;
                   unplaceable sessions are listed.</div>
               </div>
               <div class="flex flex-wrap gap-2">
@@ -192,17 +181,24 @@
               <div>
 
                 <div class="mt-1 text-xl font-black tracking-tight">Instructors</div>
-                <div class="mt-1 text-sm text-white/65">Add instructors and mark unavailable hours.</div>
+                <div class="mt-1 text-sm text-muted">Add instructors and mark unavailable hours.</div>
               </div>
               <div class="flex gap-2">
                 <button id="btnAddInstructor" class="btn btn-primary px-3 py-2 rounded-xl text-sm">Add</button>
               </div>
             </div>
 
-            <div class="mt-4 grid gap-3 sm:grid-cols-2">
               <div class="sm:col-span-2">
-                <label class="label" for="instructorSelect">Edit availability</label>
-                <select id="instructorSelect" class="input mt-1"></select>
+                <label class="label">Edit availability</label>
+                <div class="custom-select-wrap mt-1" id="instructorSelectWrap">
+                  <button id="instructorSelectBtn" class="input custom-select-trigger">
+                    <span id="instructorSelectLabel">Select Instructor</span>
+                    <svg class="w-4 h-4 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                  </button>
+                  <div id="instructorSelectMenu" class="custom-select-menu hidden shadow-2xl"></div>
+                </div>
+                <!-- Hidden select for state compatibility -->
+                <select id="instructorSelect" class="hidden" title="Select Instructor"></select>
               </div>
               <div>
                 <button id="btnWorkingHours" class="btn w-full px-3 py-2 rounded-xl text-sm">Set working hours</button>
@@ -240,19 +236,19 @@
           </div>
           <div class="flex items-center gap-4">
             <a href="https://www.instagram.com/nohanbaloch_7/" class="footer-link text-base">Nohan Baloch</a>
-            <span class="text-white/20">&bull;</span>
+            <span class="text-muted2">&bull;</span>
             <a href="https://www.instagram.com/memonrafay9/" class="footer-link text-base">Rafay Ahmed Memon</a>
           </div>
         </div>
 
         <div class="flex flex-col items-center md:items-end gap-3">
-          <a href="https://github.com/nohanbaloch/UniSchedule" target="_blank" rel="noopener" class="btn px-3 py-2 rounded-xl text-sm inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors">
+          <a href="https://github.com/nohanbaloch/UniSchedule" target="_blank" rel="noopener" class="btn px-3 py-2 rounded-xl text-sm inline-flex items-center gap-2 text-muted hover:text-main transition-colors">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
             </svg>
             <span>GitHub</span>
           </a>
-          <div class="text-xs text-white/30">
+            <div class="text-xs text-muted2">
             &copy; 2026 Mehrtek. All rights reserved.
           </div>
         </div>
@@ -263,20 +259,18 @@
   <!-- Modals -->
   <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal">
-      <div class="px-5 sm:px-6 py-4 border-b border-white/10 flex items-start justify-between gap-3">
+      <div class="modal-header px-5 sm:px-6 py-4 flex items-start justify-between gap-3">
         <div>
-          <div class="text-xs uppercase tracking-widest text-white/60" id="modalKicker">Editor</div>
-          <div class="mt-1 text-lg font-black tracking-tight" id="modalTitle">Modal</div>
+          <div class="modal-kicker text-xs uppercase tracking-widest" id="modalKicker">Editor</div>
+          <div class="modal-title mt-1 text-lg font-black tracking-tight" id="modalTitle">Modal</div>
         </div>
-        <button id="btnCloseModal" class="btn px-3 py-2 rounded-xl text-sm">Close <span
-            class="kbd ml-1">Esc</span></button>
+        <button id="btnCloseModal" class="btn px-3 py-2 rounded-xl text-sm">Close <span class="kbd ml-1">Esc</span></button>
       </div>
 
       <div class="p-5 sm:p-6" id="modalBody"></div>
 
-      <div
-        class="px-5 sm:px-6 py-4 border-t border-white/10 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
-        <div class="text-xs text-white/55" id="modalHint"></div>
+      <div class="modal-footer px-5 sm:px-6 py-4 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+        <div class="modal-hint text-xs" id="modalHint"></div>
         <div class="flex gap-2 justify-end">
           <button id="btnModalSecondary" class="btn px-3 py-2 rounded-xl text-sm">Cancel</button>
           <button id="btnModalPrimary" class="btn btn-primary px-3 py-2 rounded-xl text-sm">Save</button>

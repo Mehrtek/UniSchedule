@@ -4,5 +4,4 @@ node_modules/
 Thumbs.db
 dist/
 release/
-!release/version-changelogs/
 .agent/

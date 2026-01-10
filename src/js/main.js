@@ -188,9 +188,8 @@ function bindEvents() {
 }
 
 function init() {
-    // Migrate or set initial theme
-    const savedTheme = localStorage.getItem("uni-theme-new") || 
-                       (localStorage.getItem("uni-theme") === "light" ? "alabaster" : "onyx");
+    // Default to onyx (dark)
+    const savedTheme = localStorage.getItem("uni-theme-new") || "onyx";
     setTheme(savedTheme);
 
     state.settings.days = [...DEFAULT_DAYS];

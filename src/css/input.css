@@ -47,6 +47,36 @@
   --warn: #fbbf24;
 }
 
+body.theme-alabaster {
+  --bg0: #f8fafc;
+  --bg1: #f1f5f9;
+  --card: rgba(0, 0, 0, 0.04);
+  --card2: rgba(0, 0, 0, 0.06);
+  --stroke: rgba(0, 0, 0, 0.08);
+  --stroke2: rgba(0, 0, 0, 0.12);
+  --text: #1e293b;
+  --muted: #475569;
+  --muted2: #64748b;
+  --accent1: #6366f1;
+  --accent2: #06b6d4;
+  --accent3: #10b981;
+}
+
+body.theme-spectrum {
+  --bg0: #0f172a;
+  --bg1: #1e1b4b;
+  --card: rgba(255, 255, 255, 0.08);
+  --card2: rgba(255, 255, 255, 0.12);
+  --stroke: rgba(255, 255, 255, 0.15);
+  --stroke2: rgba(255, 255, 255, 0.2);
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.8);
+  --muted2: rgba(255, 255, 255, 0.6);
+  --accent1: #f43f5e;
+  --accent2: #8b5cf6;
+  --accent3: #ec4899;
+}
+
 html,
 body {
   height: 100%;
@@ -95,6 +125,61 @@ body {
   border: 1px solid var(--stroke);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
+}
+
+.theme-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: -8px;
+  z-index: 50;
+  margin-top: 10px;
+  animation: slideInDown 200ms ease-out;
+}
+.theme-dropdown-inner {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid var(--stroke2);
+  border-radius: 999px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+.theme-alabaster .theme-dropdown-inner { background: rgba(255, 255, 255, 0.9); border-color: rgba(0,0,0,0.1); }
+
+.theme-opt {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: var(--muted);
+  transition: all 160ms ease;
+  cursor: pointer;
+}
+.theme-opt:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  transform: scale(1.1);
+}
+.theme-opt.active {
+  background: var(--accent1);
+  color: white;
+  box-shadow: 0 0 15px var(--accent1);
+}
+.theme-arrow {
+  transition: transform 300ms ease;
+}
+#btnThemeToggle:hover .theme-arrow {
+  transform: rotate(15deg);
+}
+
+@keyframes slideInDown {
+  from { transform: translateY(-10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
 .btn {

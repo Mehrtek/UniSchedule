@@ -2,10 +2,11 @@
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
-  :root, :host {
+  :root,
+  :host {
     --font-sans: "LocalFont", "Inter", "ui-sans-serif", "system-ui";
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-      "Courier New", monospace;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
     --spacing: 0.25rem;
     --text-xs: 0.75rem;
     --text-xs--line-height: calc(1 / 0.75);
@@ -35,17 +36,31 @@
   }
 }
 @layer base {
-  *, ::after, ::before, ::backdrop, ::file-selector-button {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     border: 0 solid;
   }
-  html, :host {
+  html,
+  :host {
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
     tab-size: 4;
-    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-family: var(
+      --default-font-family,
+      ui-sans-serif,
+      system-ui,
+      sans-serif,
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol",
+      "Noto Color Emoji"
+    );
     font-feature-settings: var(--default-font-feature-settings, normal);
     font-variation-settings: var(--default-font-variation-settings, normal);
     -webkit-tap-highlight-color: transparent;
@@ -59,7 +74,12 @@
     -webkit-text-decoration: underline dotted;
     text-decoration: underline dotted;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-size: inherit;
     font-weight: inherit;
   }
@@ -68,19 +88,37 @@
     -webkit-text-decoration: inherit;
     text-decoration: inherit;
   }
-  b, strong {
+  b,
+  strong {
     font-weight: bolder;
   }
-  code, kbd, samp, pre {
-    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(
+      --default-mono-font-family,
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      "Liberation Mono",
+      "Courier New",
+      monospace
+    );
     font-feature-settings: var(--default-mono-font-feature-settings, normal);
-    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-variation-settings: var(
+      --default-mono-font-variation-settings,
+      normal
+    );
     font-size: 1em;
   }
   small {
     font-size: 80%;
   }
-  sub, sup {
+  sub,
+  sup {
     font-size: 75%;
     line-height: 0;
     position: relative;
@@ -106,18 +144,33 @@
   summary {
     display: list-item;
   }
-  ol, ul, menu {
+  ol,
+  ul,
+  menu {
     list-style: none;
   }
-  img, svg, video, canvas, audio, iframe, embed, object {
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
     display: block;
     vertical-align: middle;
   }
-  img, video {
+  img,
+  video {
     max-width: 100%;
     height: auto;
   }
-  button, input, select, optgroup, textarea, ::file-selector-button {
+  button,
+  input,
+  select,
+  optgroup,
+  textarea,
+  ::file-selector-button {
     font: inherit;
     font-feature-settings: inherit;
     font-variation-settings: inherit;
@@ -139,7 +192,8 @@
   ::placeholder {
     opacity: 1;
   }
-  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+  @supports (not (-webkit-appearance: -apple-pay-button)) or
+    (contain-intrinsic-size: 1px) {
     ::placeholder {
       color: currentcolor;
       @supports (color: color-mix(in lab, red, red)) {
@@ -163,7 +217,15 @@
   ::-webkit-datetime-edit-fields-wrapper {
     padding: 0;
   }
-  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+  ::-webkit-datetime-edit,
+  ::-webkit-datetime-edit-year-field,
+  ::-webkit-datetime-edit-month-field,
+  ::-webkit-datetime-edit-day-field,
+  ::-webkit-datetime-edit-hour-field,
+  ::-webkit-datetime-edit-minute-field,
+  ::-webkit-datetime-edit-second-field,
+  ::-webkit-datetime-edit-millisecond-field,
+  ::-webkit-datetime-edit-meridiem-field {
     padding-block: 0;
   }
   ::-webkit-calendar-picker-indicator {
@@ -172,10 +234,13 @@
   :-moz-ui-invalid {
     box-shadow: none;
   }
-  button, input:where([type="button"], [type="reset"], [type="submit"]), ::file-selector-button {
+  button,
+  input:where([type="button"], [type="reset"], [type="submit"]),
+  ::file-selector-button {
     appearance: button;
   }
-  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+  ::-webkit-inner-spin-button,
+  ::-webkit-outer-spin-button {
     height: auto;
   }
   [hidden]:where(:not([hidden="until-found"])) {
@@ -369,15 +434,23 @@
   .space-y-2 {
     :where(& > :not(:last-child)) {
       --tw-space-y-reverse: 0;
-      margin-block-start: calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));
-      margin-block-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)));
+      margin-block-start: calc(
+        calc(var(--spacing) * 2) * var(--tw-space-y-reverse)
+      );
+      margin-block-end: calc(
+        calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse))
+      );
     }
   }
   .space-y-6 {
     :where(& > :not(:last-child)) {
       --tw-space-y-reverse: 0;
-      margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));
-      margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
+      margin-block-start: calc(
+        calc(var(--spacing) * 6) * var(--tw-space-y-reverse)
+      );
+      margin-block-end: calc(
+        calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse))
+      );
     }
   }
   .truncate {
@@ -503,7 +576,9 @@
   }
   .ordinal {
     --tw-ordinal: ordinal;
-    font-variant-numeric: var(--tw-ordinal,) var(--tw-slashed-zero,) var(--tw-numeric-figure,) var(--tw-numeric-spacing,) var(--tw-numeric-fraction,);
+    font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero)
+      var(--tw-numeric-figure) var(--tw-numeric-spacing)
+      var(--tw-numeric-fraction);
   }
   .opacity-40 {
     opacity: 40%;
@@ -513,23 +588,34 @@
   }
   .shadow-2xl {
     --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+      var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-soft {
     --tw-shadow: 0 10px 30px var(--tw-shadow-color, rgba(0, 0, 0, 0.1));
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+      var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .blur {
     --tw-blur: blur(8px);
-    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
+      var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert)
+      var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
   }
   .blur-3xl {
     --tw-blur: blur(var(--blur-3xl));
-    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
+      var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert)
+      var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
   }
   .transition-colors {
-    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-property: color, background-color, border-color, outline-color,
+      text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via,
+      --tw-gradient-to;
+    transition-timing-function: var(
+      --tw-ease,
+      var(--default-transition-timing-function)
+    );
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
   .sm\:col-span-2 {
@@ -634,13 +720,25 @@
   }
 }
 .glow-blob-1 {
-  background: radial-gradient( circle at 30% 30%, rgba(124, 58, 237, 0.55), transparent 55% );
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(124, 58, 237, 0.55),
+    transparent 55%
+  );
 }
 .glow-blob-2 {
-  background: radial-gradient( circle at 30% 30%, rgba(34, 211, 238, 0.45), transparent 60% );
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(34, 211, 238, 0.45),
+    transparent 60%
+  );
 }
 .logo-box {
-  background: linear-gradient( 180deg, rgba(124, 58, 237, 0.95), rgba(34, 211, 238, 0.55) );
+  background: linear-gradient(
+    180deg,
+    rgba(124, 58, 237, 0.95),
+    rgba(34, 211, 238, 0.55)
+  );
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
 }
 :root {
@@ -659,39 +757,158 @@
   --danger: #fb7185;
   --warn: #fbbf24;
 }
-html, body {
+
+body.theme-alabaster {
+  --bg0: #f8fafc;
+  --bg1: #f1f5f9;
+  --card: rgba(0, 0, 0, 0.04);
+  --card2: rgba(0, 0, 0, 0.06);
+  --stroke: rgba(0, 0, 0, 0.08);
+  --stroke2: rgba(0, 0, 0, 0.12);
+  --text: #1e293b;
+  --muted: #475569;
+  --muted2: #64748b;
+  --accent1: #6366f1;
+  --accent2: #06b6d4;
+  --accent3: #10b981;
+}
+
+body.theme-spectrum {
+  --bg0: #0f172a;
+  --bg1: #1e1b4b;
+  --card: rgba(255, 255, 255, 0.08);
+  --card2: rgba(255, 255, 255, 0.12);
+  --stroke: rgba(255, 255, 255, 0.15);
+  --stroke2: rgba(255, 255, 255, 0.2);
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.8);
+  --muted2: rgba(255, 255, 255, 0.6);
+  --accent1: #f43f5e;
+  --accent2: #8b5cf6;
+  --accent3: #ec4899;
+}
+html,
+body {
   height: 100%;
 }
 body {
-  background: radial-gradient( 1200px 800px at 12% 10%, rgba(124, 58, 237, 0.35), transparent 55% ), radial-gradient( 1200px 800px at 95% 20%, rgba(34, 211, 238, 0.25), transparent 55% ), radial-gradient( 900px 700px at 60% 100%, rgba(52, 211, 153, 0.16), transparent 60% ), linear-gradient(180deg, var(--bg0), var(--bg1));
+  background: radial-gradient(
+      1200px 800px at 12% 10%,
+      rgba(124, 58, 237, 0.35),
+      transparent 55%
+    ),
+    radial-gradient(
+      1200px 800px at 95% 20%,
+      rgba(34, 211, 238, 0.25),
+      transparent 55%
+    ),
+    radial-gradient(
+      900px 700px at 60% 100%,
+      rgba(52, 211, 153, 0.16),
+      transparent 60%
+    ),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
   background-attachment: fixed;
   color: var(--text);
-  font-family: "LocalFont", Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  font-family: "LocalFont", Inter, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial;
   overflow-x: hidden;
 }
 .glass {
-  background: linear-gradient( 180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05) );
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
   border: 1px solid var(--stroke);
   box-shadow: var(--tw-shadow, 0 0 #0000);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
 .glass2 {
-  background: linear-gradient( 180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04) );
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.09),
+    rgba(255, 255, 255, 0.04)
+  );
   border: 1px solid var(--stroke);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
+.theme-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: -8px;
+  z-index: 50;
+  margin-top: 10px;
+  animation: slideInDown 200ms ease-out;
+}
+.theme-dropdown-inner {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid var(--stroke2);
+  border-radius: 999px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+.layer-onyx .theme-dropdown-inner { background: rgba(10, 14, 28, 0.95); }
+.layer-alabaster .theme-dropdown-inner { background: rgba(255, 255, 255, 0.9); border-color: rgba(0,0,0,0.1); }
+
+.theme-opt {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: var(--muted);
+  transition: all 160ms ease;
+  cursor: pointer;
+}
+.theme-opt:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  transform: scale(1.1);
+}
+.theme-opt.active {
+  background: var(--accent1);
+  color: white;
+  box-shadow: 0 0 15px var(--accent1);
+}
+.theme-arrow {
+  transition: transform 300ms ease;
+}
+#btnThemeToggle:hover .theme-arrow {
+  transform: rotate(15deg);
+}
+
+@keyframes slideInDown {
+  from { transform: translateY(-10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
 .btn {
   border: 1px solid var(--stroke2);
-  background: linear-gradient( 180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06) );
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.06)
+  );
   color: var(--text);
-  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, opacity 160ms ease;
+  transition: transform 160ms ease, background 160ms ease,
+    border-color 160ms ease, opacity 160ms ease;
 }
 .btn:hover {
   transform: translateY(-1px);
   border-color: rgba(255, 255, 255, 0.26);
-  background: linear-gradient( 180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08) );
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.16),
+    rgba(255, 255, 255, 0.08)
+  );
 }
 .btn:active {
   transform: translateY(0px);
@@ -699,16 +916,28 @@ body {
 }
 .btn-primary {
   border: 1px solid rgba(124, 58, 237, 0.55);
-  background: linear-gradient( 180deg, rgba(124, 58, 237, 0.92), rgba(124, 58, 237, 0.62) );
+  background: linear-gradient(
+    180deg,
+    rgba(124, 58, 237, 0.92),
+    rgba(124, 58, 237, 0.62)
+  );
   box-shadow: 0 20px 40px rgba(124, 58, 237, 0.2);
 }
 .btn-primary:hover {
   border-color: rgba(124, 58, 237, 0.85);
-  background: linear-gradient( 180deg, rgba(124, 58, 237, 1), rgba(124, 58, 237, 0.68) );
+  background: linear-gradient(
+    180deg,
+    rgba(124, 58, 237, 1),
+    rgba(124, 58, 237, 0.68)
+  );
 }
 .btn-danger {
   border: 1px solid rgba(251, 113, 133, 0.55);
-  background: linear-gradient( 180deg, rgba(251, 113, 133, 0.9), rgba(251, 113, 133, 0.62) );
+  background: linear-gradient(
+    180deg,
+    rgba(251, 113, 133, 0.9),
+    rgba(251, 113, 133, 0.62)
+  );
   box-shadow: 0 20px 40px rgba(251, 113, 133, 0.14);
 }
 .chip {
@@ -792,7 +1021,12 @@ body {
 }
 .subtle-divider {
   height: 1px;
-  background: linear-gradient( 90deg, transparent, rgba(255, 255, 255, 0.14), transparent );
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.14),
+    transparent
+  );
 }
 .tt-wrap {
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -801,7 +1035,11 @@ body {
   overflow: hidden;
 }
 .tt-head {
-  background: linear-gradient( 180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05) );
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .tt-grid {
@@ -835,7 +1073,11 @@ body {
   inset: 6px 6px 6px 6px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  background: linear-gradient( 180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08) );
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.16),
+    rgba(255, 255, 255, 0.08)
+  );
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.24);
   display: flex;
@@ -880,6 +1122,7 @@ body {
   gap: 4px;
   width: 100%;
 }
+
 .a-cell {
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -889,7 +1132,8 @@ body {
   font-size: 12px;
   -webkit-user-select: none;
   user-select: none;
-  transition: transform 140ms ease, border-color 140ms ease, background 140ms ease, opacity 140ms ease;
+  transition: transform 140ms ease, border-color 140ms ease,
+    background 140ms ease, opacity 140ms ease;
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -938,7 +1182,11 @@ body {
   width: min(720px, 100%);
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.16);
-  background: linear-gradient( 180deg, rgba(10, 14, 28, 0.96), rgba(10, 14, 28, 0.86) );
+  background: linear-gradient(
+    180deg,
+    rgba(10, 14, 28, 0.96),
+    rgba(10, 14, 28, 0.86)
+  );
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
   overflow: hidden;
   animation: pop 180ms ease-out;
@@ -965,7 +1213,11 @@ body {
 .toast {
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  background: linear-gradient( 180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.06) );
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.06)
+  );
   padding: 12px 12px;
   box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
   display: flex;
@@ -1175,8 +1427,12 @@ body {
   inherits: false;
 }
 @layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    *, ::before, ::after, ::backdrop {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+    ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+    *,
+    ::before,
+    ::after,
+    ::backdrop {
       --tw-space-y-reverse: 0;
       --tw-border-style: solid;
       --tw-leading: initial;

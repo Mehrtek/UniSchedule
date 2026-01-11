@@ -33,6 +33,14 @@
 
 
 
+          <div class="flex items-center gap-2 flex-1 justify-center max-md:hidden">
+            <button id="btnSeed" class="btn px-3 py-2 rounded-xl text-sm" title="Load demo data">Load Sample</button>
+            <button id="btnSave" class="btn px-3 py-2 rounded-xl text-sm" title="Save to local storage">Save</button>
+            <button id="btnLoad" class="btn px-3 py-2 rounded-xl text-sm" title="Import from JSON">Load</button>
+            <input type="file" id="inputFile" class="hidden" accept=".json" title="Import from JSON">
+            <button id="btnExportDocx" class="btn btn-primary px-3 py-2 rounded-xl text-sm" title="Download Word document">Export DOCX</button>
+          </div>
+
           <div class="flex items-center gap-3">
             <div class="flex items-center gap-2">
               <span class="header-label text-xs font-bold uppercase tracking-widest text-muted2 mb-[-1px]">Themes</span>
@@ -149,6 +157,12 @@
                 <div class="mt-1 text-sm text-muted" id="ttSummary">Generate to see results. Conflicts are avoided;
                   unplaceable sessions are listed.</div>
               </div>
+              <button id="btnGenerate" class="btn btn-primary px-4 py-2 rounded-xl text-sm flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                Generate
+              </button>
             </div>
 
             <div class="mt-4">

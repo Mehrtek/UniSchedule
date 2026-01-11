@@ -1,72 +1,101 @@
-# UniSchedule
+<p align="center">
+  <img src="icon.png" width="128" height="128" alt="UniSchedule Logo">
+</p>
 
-UniSchedule is a modern timetable generator for school or college or university courses. Designed to help students and faculty tune working days, manage instructors, and generate conflict-free schedules with ease.
+<h1 align="center">UniSchedule</h1>
 
-## Features
+<p align="center">
+  <strong>Effortless Timetable Generation for Modern Education</strong>
+</p>
 
-- **Course Management**: Add, search, and manage university courses.
-- **Auto-Scheduler**: Conflict-free timetable generation logic.
-- **Customizable**: Set working hours (start/end time) and days of the week.
-- **Instructor Availability**: Manage instructor schedules and working hours.
-- **Export**: Export your timetable to DOCX format.
-- **Modern UI**: A sleek, responsive interface allowing for a premium user experience.
+<p align="center">
+  <img src="https://img.shields.io/badge/Version-1.0.1-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
+  <img src="https://img.shields.io/badge/Platform-Windows%20%7C%20Web-orange.svg" alt="Platform">
+</p>
 
-## Installation
+---
 
-You can download the latest installer for Windows from the release folder:
+## 🌟 Overview
 
-windows app comming soon
+**UniSchedule** is a high-performance, aesthetically pleasing timetable generator designed for schools, colleges, and universities. It streamlines the complex task of managing courses, instructors, and constraints, producing conflict-free schedules in seconds.
 
-_Note: The installer is located in the `release/` section._
+### ✨ Key Features
 
-## User Guide
+- 📅 **Smart Auto-Scheduler**: Advanced logic to prevent class overlaps and instructor conflicts.
+- 🎓 **Course Management**: Effortlessly organize your curriculum with search and smart sorting.
+- 👨‍🏫 **Instructor Constraints**: Define specific working hours and individual availability for your teaching staff.
+- 🎨 **Premium UI**: A sleek, glassmorphic interface with support for multiple themes (Onyx, Alabaster, Spectrum).
+- 📄 **DOCX Export**: One-click export to professional Word documents for distribution.
+- 💾 **Local-First**: Complete data privacy. All schedules are stored locally on your device.
+
+---
+
+## 📸 Screenshots
+
+<p align="center">
+  <img src="Screenshot/onyx-dark.jpg" width="800" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);" alt="Dashboard Overview">
+  <br>
+  <em>The modern dashboard in <strong>Onyx</strong> theme.</em>
+</p>
+
+<br>
+
+<p align="center">
+  <img src="Screenshot/alabaster-light.jpg" width="800" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);" alt="Course Management">
+  <br>
+  <em>Organize courses with ease in <strong>Alabaster</strong> theme.</em>
+</p>
+
+<br>
+
+<p align="center">
+  <img src="Screenshot/spectrum-Vibrant.jpg" width="800" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);" alt="Timetable View">
+  <br>
+  <em>Beautifully generated conflict-free timetables in <strong>Spectrum</strong> theme.</em>
+</p>
+
+---
+
+## 🚀 Getting Started
+
+### Installation (Windows)
+
+1. Download the latest installer: [**UniSchedule Setup 1.0.1.exe**](release/UniSchedule%20Setup%201.0.1.exe)
+2. Run the installer and follow the on-screen instructions.
+3. Launch the app and click **"Load Sample"** to see it in action!
+
+### Web Version
+
+Simply open `index.html` in any modern web browser to use the application instantly.
+
+---
+
+## 📖 User Guide
 
 ### 1. Getting Started
 
-- Launch **UniSchedule**.
-- You can start fresh or click **"Load sample"** in the top navigation bar to populate the app with demo data to see how it works.
+Launch **UniSchedule**. You can start fresh or click **"Load sample"** in the top navigation bar to populate the app with demo data to see how it works.
 
-### 2. Managing Courses
+### 2. Managing Courses & Instructors
 
-- Navigate to the **Courses** section.
-- Click **"Add"** to create a new course. Enter the course title, code, and other details.
-- Use the **Search** bar to quickly find existing courses.
-- Use **"Smart sort"** to organize your course list automatically.
+Navigate to the **Courses** or **Instructors** section. Use the **"Add"** buttons to create new entries. For instructors, you can click on them to **Edit availability**, blocking out specific hours or setting dedicated working windows.
 
 ### 3. Setting Constraints
 
-- In the **Settings** panel (Week & hours), configure your available time:
-  - **Start/End Hour**: Define the daily time range for classes.
-  - **Weekdays**: Select which days of the week are available for scheduling.
-- Click **"Apply"** to save these settings.
+In the **Settings** panel (Week & hours), configure your institution's daily time range and available workdays. Click **"Apply"** to save.
 
-### 4. Managing Instructors
+### 4. Generating & Exporting
 
-- Go to the **Instructors** section.
-- Click **"Add"** to register a new instructor.
-- Select an instructor from the dropdown to **Edit availability**.
-- You can block out specific times or **"Set working hours"** for each instructor to ensure realistic scheduling.
+Once everything is set, click the **"Generate"** button (or press `G`). The engine will produce a visual timetable. Satisfied? Click **"Export DOCX"** to download the schedule as a Word file.
 
-### 5. Generating the Timetable
+### 5. Data Safety
 
-- Once courses and constraints are set, look for the **Generated timetable** section.
-- Click the **"Generate"** button (or press `G`).
-- The algorithm will attempt to create a conflict-free schedule based on your inputs.
-- If successful, the timetable will be displayed visually.
+Your data is automatically saved to your device (Local Storage for web, App Data for desktop). No data is sent to the cloud, ensuring total privacy. To start over, use the **"Reset Data"** button.
 
-### 6. Exporting
+---
 
-- Satisfied with the result? Click **"Export DOCX"** in the top bar to download your schedule as a Word document.
-- You can also click **"Save"** to persist your current session data.
-
-### 7. Data Persistence
-
-- **Auto-Save**: Your data is automatically saved to your device (Local Storage for web, App Data for desktop) as you work.
-- **Privacy**: No data is sent to the cloud. It stays on your device.
-- **Safety**: Your data will **not** disappear when you close the tab or app.
-- **Reset**: To clear your data and start fresh, use the **"Reset Data"** button (in the courses panel).
-
-## Future Plans
+## 🗺️ Roadmap
 
 - **Cloud Sync**: Save and access schedules across multiple devices.
 - **Student Portal**: Allow students to view their personalized schedules.
@@ -74,15 +103,15 @@ _Note: The installer is located in the `release/` section._
 - **Advanced Analytics**: Insights into resource utilization and room occupancy.
 - **Mobile App**: Native mobile application for iOS and Android.
 
-## Credits
+---
 
-Designed & Developed by:
+## 🤝 Credits
 
-- **Nohan Baloch**
-- **Rafay Ahmed Memon**
+**Designed & Developed by:**
 
-&copy; 2026 Mehrtek. All rights reserved.
+- [Nohan Baloch](https://github.com/nohanbaloch)
+- [Rafay Ahmed Memon](https://github.com/Rafay917)
 
-## License
+&copy; 2026 [Mehrtek](https://github.com/Mehrtek). All rights reserved.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Licensed under the [MIT License](LICENSE).

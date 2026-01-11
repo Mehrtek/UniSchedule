@@ -182,6 +182,18 @@ function bindEvents() {
 
     $("#btnSave").addEventListener("click", persist);
 
+    $("#btnLoad").addEventListener("click", () => $("#inputFile").click());
+    $("#inputFile").addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            importJsonFile(file).then(success => {
+                if (success) renderAll();
+            });
+            // Reset for next time
+            e.target.value = "";
+        }
+    });
+
     $("#btnExportDocx").addEventListener("click", exportDocx);
 
   $("#btnClearSchedule").addEventListener("click", () => {

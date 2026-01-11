@@ -1,0 +1,18 @@
+:root {
+  --bg0: #070a12;
+  --bg1: #0b1022;
+  --card: rgba(255, 255, 255, 0.06);
+  --card2: rgba(255, 255, 255, 0.08);
+  --stroke: rgba(255, 255, 255, 0.1);
+  --stroke2: rgba(255, 255, 255, 0.16);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.72);
+  --muted2: rgba(255, 255, 255, 0.54);
+  --accent1: #7c3aed;
+  --accent2: #22d3ee;
+  --accent3: #34d399;
+  --danger: #fb7185;
+  --warn: #fbbf24;
+  --modal-bg: rgba(15, 23, 42, 0.98);
+  --input-bg: rgba(0, 0, 0, 0.25);
+}

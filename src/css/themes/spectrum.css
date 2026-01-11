@@ -1,0 +1,16 @@
+body.theme-spectrum {
+  --bg0: #0f172a;
+  --bg1: #1e1b4b;
+  --card: rgba(255, 255, 255, 0.08);
+  --card2: rgba(255, 255, 255, 0.12);
+  --stroke: rgba(255, 255, 255, 0.15);
+  --stroke2: rgba(255, 255, 255, 0.2);
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.8);
+  --muted2: rgba(255, 255, 255, 0.6);
+  --accent1: #f43f5e;
+  --accent2: #8b5cf6;
+  --accent3: #ec4899;
+  --modal-bg: rgba(30, 27, 75, 0.98);
+  --input-bg: rgba(255, 255, 255, 0.1);
+}
